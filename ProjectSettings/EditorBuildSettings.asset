@@ -5,7 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/GrassLand.unity
+    guid: 34e541b6c09947b48b6a77bce59484d3
+  - enabled: 1
+    path: Assets/Scenes/CaveSouth.unity
+    guid: 83804f15321bdc643ba181e7d7010a0b
+  - enabled: 1
+    path: Assets/Scenes/CaveNorth.unity
+    guid: c98c001a82fee5f4b96d76811c14adfc
   m_configObjects: {}
