@@ -170,8 +170,6 @@ public class CharacterSetup : MonoBehaviour {
 
     public void UpdateSprites(bool updateColorOnly)
     {
-
-        Debug.Log("Updating Sprites.");
         UpdateCachedSpriteRenderersForAllDirections();
 
         UpdateSpritesForDirection(cachedDownSpriteRenderers, "down", updateColorOnly);
@@ -380,7 +378,8 @@ public class CharacterSetup : MonoBehaviour {
                             string path = UnityEditor.AssetDatabase.GUIDToAssetPath(assets[0]);
                             if (UnityEditor.AssetDatabase.GetMainAssetTypeAtPath(path) == typeof(Sprite))
                             {
-                                Sprite loadedSprite = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(path);
+                                //Sprite loadedSprite = 
+                                UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>(path);
                                 spriteRenderer.sprite = sprite;
                                 break;
                             }
