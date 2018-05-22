@@ -18,7 +18,7 @@ public class SceneController : MonoBehaviour {
             GameManager.instance.PreviousScene = SceneManager.GetActiveScene().name;
             GameManager.instance.CurrentScene = transform.name;
 
-            FaderInit.Fade(transform.name, Color.black, 1.5f);
+            FaderInit.Fade(transform.name, Color.black, 1f);
         }
     }
 

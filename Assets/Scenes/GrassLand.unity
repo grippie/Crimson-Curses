@@ -17021,7 +17021,7 @@ Tilemap:
       - {fileID: 21300142, guid: 8ab1bf3fc4bcbfa45807492cc18cf5b1, type: 3}
       - {fileID: 21300150, guid: 8ab1bf3fc4bcbfa45807492cc18cf5b1, type: 3}
       - {fileID: 21300158, guid: 8ab1bf3fc4bcbfa45807492cc18cf5b1, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -8, y: 6, z: 0}

@@ -164,6 +164,8 @@ public class CharacterControl : MonoBehaviour
         // using the tilemapInfo.cs script to be reusable by every scene that has different sizes.
         transform.position = new Vector3(Mathf.Clamp(ti.target.position.x, ti.playerXmin, ti.playerXmax),
                                          Mathf.Clamp(ti.target.position.y, ti.playerYmin, ti.playerYmax),0);
+
+
     }
 
     /// <summary>
@@ -190,9 +192,8 @@ public class CharacterControl : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y + .25f, 0);
         }
 
-        GameManager.instance.hitPoints -= 1;
-
         // update the UI
+        GameManager.instance.UpdateHitPoints(-1);
 
         if (GameManager.instance.hitPoints <= 0)
         {
