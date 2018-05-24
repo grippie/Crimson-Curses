@@ -7758,8 +7758,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.97249997, y: 0.957}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -46.2, y: -25.8}
-  m_SizeDelta: {x: 51, y: 8.400002}
+  m_AnchoredPosition: {x: -711.1, y: -87}
+  m_SizeDelta: {x: 51.27, y: 11.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526581259
 MonoBehaviour:
@@ -17021,7 +17021,7 @@ Tilemap:
       - {fileID: 21300142, guid: 8ab1bf3fc4bcbfa45807492cc18cf5b1, type: 3}
       - {fileID: 21300150, guid: 8ab1bf3fc4bcbfa45807492cc18cf5b1, type: 3}
       - {fileID: 21300158, guid: 8ab1bf3fc4bcbfa45807492cc18cf5b1, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -8, y: 6, z: 0}
@@ -45324,7 +45324,7 @@ GameObject:
   - component: {fileID: 2078584049}
   - component: {fileID: 2078584048}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
