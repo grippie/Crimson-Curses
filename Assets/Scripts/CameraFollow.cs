@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour {
     void Start()
     {
         ti = tilemap.GetComponent<TilemapInfo>();
+        GetComponent<Camera>().orthographicSize = 4.5f;
     }
 
     // Update is called after Update

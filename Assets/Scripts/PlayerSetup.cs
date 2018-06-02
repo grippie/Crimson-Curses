@@ -15,10 +15,11 @@ public class PlayerSetup : MonoBehaviour {
 
     // the # of entrance locations will expand depending on the worst case scneario of the # of scene entrances
     // values can be null, as the comparison will return false and not error out with null == 0
+    [Header("Entrance 1")]
     public string entrance1string;
     public Vector3 entrance1vector;
     public GameObject entrance1direction;
-
+    [Header("Entrance 2")]
     public string entrance2string;
     public Vector3 entrance2vector;
     public GameObject entrance2direction;
@@ -49,6 +50,7 @@ public class PlayerSetup : MonoBehaviour {
     private void SetActive(Vector3 location, GameObject entranceDirection)
     {
         transform.position = location;
+        Debug.Log("Setting active direction to " + entranceDirection.name);
         GameManager.instance.CurrentDirection = entranceDirection;     
     }
 

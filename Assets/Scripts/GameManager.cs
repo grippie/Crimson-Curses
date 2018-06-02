@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+    //public GameObject hud;
     public string PreviousScene { get; set; }
     public string CurrentScene { get; set; }
     public GameObject CurrentDirection { get; set; }
-    public int hitPoints { get; set; }
-    public int maxHitPoints { get; set; }
-    public Text hitPointsText;
+    public int HitPoints { get; set; }
+    public int MaxHitPoints { get; set; }
+    private Text hitPointsText;
 
     // things to store here that persist scene to scene
     // player health
@@ -26,9 +27,8 @@ public class GameManager : MonoBehaviour
 
         hitPointsText = GameObject.Find("HitPointsText").GetComponent<Text>();
 
-        maxHitPoints = 5;
-        UpdateHitPoints(maxHitPoints);
-        hitPoints = maxHitPoints;
+        MaxHitPoints = 5;
+        UpdateHitPoints(MaxHitPoints);
 
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
@@ -37,9 +37,9 @@ public class GameManager : MonoBehaviour
 
     public void UpdateHitPoints(int delta)
     {
-        Debug.Log(hitPoints + " " + delta);
-        hitPoints +=delta;
-        hitPointsText.text = hitPoints.ToString();
-        Debug.Log(hitPoints + " " + delta);
+        Debug.Log("Start " + HitPoints + " change:" + delta);
+        HitPoints +=delta;
+        hitPointsText.text = HitPoints.ToString();
+        Debug.Log("Result " + HitPoints);
     }
 }

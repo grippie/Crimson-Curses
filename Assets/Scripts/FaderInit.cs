@@ -10,7 +10,7 @@ public static class FaderInit
     {
         if (areWeFading)
         {
-            Debug.Log("Already Fading");
+            //Debug.Log("Already Fading");
             return;
         }
 
@@ -35,5 +35,10 @@ public static class FaderInit
     public static void DoneFading()
     {
         areWeFading = false;
+    }
+
+    public static bool StillFading()
+    {
+        return areWeFading;
     }
 }
