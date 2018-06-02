@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour {
 
     public GameObject player;
+    private float fadeSpeed = 3;
 
     // if the player collides with a scene trigger,
     // load the scene with the same name as the gameobject
@@ -18,7 +19,9 @@ public class SceneController : MonoBehaviour {
             GameManager.instance.PreviousScene = SceneManager.GetActiveScene().name;
             GameManager.instance.CurrentScene = transform.name;
 
-            FaderInit.Fade(transform.name, Color.black, 1f);
+            //Debug.Log("prev " + SceneManager.GetActiveScene().name + "-cur " + transform.name);
+
+            FaderInit.Fade(transform.name, Color.black, fadeSpeed);
         }
     }
 

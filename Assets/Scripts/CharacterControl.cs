@@ -16,9 +16,8 @@ public class CharacterControl : MonoBehaviour
     private TilemapInfo ti;
     public Tilemap tilemap;
     public int currentHitPoints;
+    public float damageFallBack = .25f;
 
- //   public GameObject hair;
-    
     // Use this for initialization
     void Start()
     {        
@@ -31,7 +30,7 @@ public class CharacterControl : MonoBehaviour
         if (GameManager.instance.CurrentDirection != null)
             currentDir = GameManager.instance.CurrentDirection;
 
-        GameManager.instance.hitPoints = GameManager.instance.maxHitPoints;
+        GameManager.instance.HitPoints = GameManager.instance.MaxHitPoints;
 
         // make only the currentDir Active
         SetActive(currentDir);
@@ -79,9 +78,16 @@ public class CharacterControl : MonoBehaviour
         moveDirection.y = vertical;
 
         if (Mathf.Abs(horizontal) > 0 || Mathf.Abs(vertical) > 0)
+        {
             currentDir.GetComponent<Animator>().SetBool("Idle", false);
+            speed = 4f;
+        }      
         else
+        {
             currentDir.GetComponent<Animator>().SetBool("Idle", true);
+            speed = 0;
+        }
+           
 
         if (horizontal < 0)
         {
@@ -120,41 +126,32 @@ public class CharacterControl : MonoBehaviour
         {
             TakeDamage();
         }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            GameManager.instance.UpdateHitPoints(5);
+        }
 
         if (Input.GetKeyDown(KeyCode.T))
         {
             currentDir.GetComponent<Animator>().SetTrigger("Thrust");
-            currentDir.GetComponent<Animator>().SetBool("Attacking", true);
+            //currentDir.GetComponent<Animator>().SetBool("Attacking", true);
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             //currentDir.GetComponent<Animator>().SetTrigger("Swing");
             //isAttacking = true;
-
+            Debug.Log("currnt dir name " + currentDir.name);
 			currentDir.GetComponent<Animator>().SetTrigger("Swing");
-            currentDir.GetComponent<Animator>().SetBool("Attacking", true);
+            //currentDir.GetComponent<Animator>().SetBool("Attacking", true);
         }
         else if (Input.GetKeyDown(KeyCode.B))
         {
             currentDir.GetComponent<Animator>().SetTrigger("Bow");
-            isAttacking = true;
+            //isAttacking = true;
         }
 
-        //if (currentDir.GetComponent<Animator>()
-        //    Debug.Log("playing");
-        //else
-        //    Debug.Log("Not Playing");
+        transform.Translate(moveDirection * speed * Time.deltaTime);
 
-        //if (!isWalking && currentDir != null)
-        //{
-        //    currentDir.GetComponent<Animator>().SetBool("Idle", true);
-        //}   
-        // need to pause, or stop moving while attacking. 
-        // wait until the animation is finished.
-        //else if (!isAttacking) 
-        //{
-            transform.Translate(moveDirection * speed * Time.deltaTime);
-        //}
     }
 
     // happens after update
@@ -189,16 +186,46 @@ public class CharacterControl : MonoBehaviour
 
         if (currentDir.Equals(downDir))
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + .25f, 0);
+            transform.position = new Vector3(transform.position.x, transform.position.y + damageFallBack, 0);
+        }
+        else if (currentDir.Equals(upDir))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - damageFallBack, 0);
+        }
+        else if (currentDir.Equals(rightDir))
+        {
+            transform.position = new Vector3(transform.position.x - damageFallBack, transform.position.y, 0);
+        }
+        else if (currentDir.Equals(leftDir))
+        {
+            transform.position = new Vector3(transform.position.x + damageFallBack, transform.position.y, 0);
         }
 
         // update the UI
         GameManager.instance.UpdateHitPoints(-1);
+        Debug.Log("Damage " + GameManager.instance.HitPoints);
 
-        if (GameManager.instance.hitPoints <= 0)
+        if (GameManager.instance.HitPoints <= 0)
         {
             currentDir.GetComponent<Animator>().SetTrigger("Death");
         }
     }
 
 }
+
+
+
+//if (currentDir.GetComponent<Animator>()
+//    Debug.Log("playing");
+//else
+//    Debug.Log("Not Playing");
+
+//if (!isWalking && currentDir != null)
+//{
+//    currentDir.GetComponent<Animator>().SetBool("Idle", true);
+//}   
+// need to pause, or stop moving while attacking. 
+// wait until the animation is finished.
+//else if (!isAttacking) 
+//{
+//if (!FaderInit.StillFading())
