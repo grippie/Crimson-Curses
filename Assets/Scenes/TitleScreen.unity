@@ -833,6 +833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -646, y: 341.5}
@@ -841,12 +842,17 @@ RectTransform:
 =======
 =======
 >>>>>>> parent of 74351b2... Updated Title Screen
+=======
+>>>>>>> parent of 74351b2... Updated Title Screen
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -483, y: 308}
   m_SizeDelta: {x: 381.1, y: 88.7}
   m_Pivot: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 74351b2... Updated Title Screen
+=======
 >>>>>>> parent of 74351b2... Updated Title Screen
 =======
 >>>>>>> parent of 74351b2... Updated Title Screen
@@ -900,8 +906,13 @@ MonoBehaviour:
     rgba: 4278190080
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_fontSize: 101.15
   m_fontSizeBase: 50
+=======
+  m_fontSize: 115
+  m_fontSizeBase: 115
+>>>>>>> parent of 74351b2... Updated Title Screen
 =======
   m_fontSize: 115
   m_fontSizeBase: 115
@@ -947,7 +958,11 @@ MonoBehaviour:
   m_pageToDisplay: 1
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_margin: {x: 0, y: 10.637512, z: -159.79657, w: 159.98132}
+=======
+  m_margin: {x: 0, y: 0, z: -138.59808, w: -201.4974}
+>>>>>>> parent of 74351b2... Updated Title Screen
 =======
   m_margin: {x: 0, y: 0, z: -138.59808, w: -201.4974}
 >>>>>>> parent of 74351b2... Updated Title Screen
