@@ -88,11 +88,12 @@ public class CharacterControl : MonoBehaviour
             speed = 0;
         }
            
+        bool isIdle = currentDir.GetComponent<Animator>().GetBool("Idle");
 
         if (horizontal < 0)
         {
 
-            if ((!currentDir.Equals(leftDir) && Mathf.Abs(vertical) == 0) || currentDir.GetComponent<Animator>().GetBool("Idle"))
+            if ((!currentDir.Equals(leftDir) && Mathf.Abs(vertical) == 0) || isIdle)
             {
                 SetDirection(ref currentDir, leftDir);
             }
@@ -100,7 +101,7 @@ public class CharacterControl : MonoBehaviour
 
         if (horizontal > 0)
         {
-            if ((!currentDir.Equals(rightDir) && Mathf.Abs(vertical) == 0) || currentDir.GetComponent<Animator>().GetBool("Idle"))
+            if ((!currentDir.Equals(rightDir) && Mathf.Abs(vertical) == 0) || isIdle)
             {
                 SetDirection(ref currentDir, rightDir);
             }
@@ -108,7 +109,7 @@ public class CharacterControl : MonoBehaviour
 
         if (vertical < 0)
         {
-            if ((!currentDir.Equals(downDir) && Mathf.Abs(horizontal) == 0) || currentDir.GetComponent<Animator>().GetBool("Idle"))
+            if ((!currentDir.Equals(downDir) && Mathf.Abs(horizontal) == 0) || isIdle)
             {
                 SetDirection(ref currentDir, downDir);
             }
@@ -116,7 +117,7 @@ public class CharacterControl : MonoBehaviour
 
         if (vertical > 0)
         {
-            if ((!currentDir.Equals(upDir) && Mathf.Abs(horizontal) == 0)  || currentDir.GetComponent<Animator>().GetBool("Idle"))
+            if ((!currentDir.Equals(upDir) && Mathf.Abs(horizontal) == 0)  || isIdle)
             {
                 SetDirection(ref currentDir, upDir);
             }
@@ -131,24 +132,21 @@ public class CharacterControl : MonoBehaviour
             GameManager.instance.UpdateHitPoints(5);
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    currentDir.GetComponent<Animator>().SetTrigger("Thrust");
+        //    //currentDir.GetComponent<Animator>().SetBool("Attacking", true);
+        //}
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            currentDir.GetComponent<Animator>().SetTrigger("Thrust");
-            //currentDir.GetComponent<Animator>().SetBool("Attacking", true);
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            //currentDir.GetComponent<Animator>().SetTrigger("Swing");
-            //isAttacking = true;
             Debug.Log("currnt dir name " + currentDir.name);
 			currentDir.GetComponent<Animator>().SetTrigger("Swing");
-            //currentDir.GetComponent<Animator>().SetBool("Attacking", true);
         }
-        else if (Input.GetKeyDown(KeyCode.B))
-        {
-            currentDir.GetComponent<Animator>().SetTrigger("Bow");
-            //isAttacking = true;
-        }
+        //else if (Input.GetKeyDown(KeyCode.B))
+        //{
+        //    currentDir.GetComponent<Animator>().SetTrigger("Bow");
+        //    //isAttacking = true;
+        //}
 
         transform.Translate(moveDirection * speed * Time.deltaTime);
 
